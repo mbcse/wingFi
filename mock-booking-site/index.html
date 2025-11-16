@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Booking Confirmation - SkyBooker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      opacity: 0.9;
+    }
+
+    .success-badge {
+      background: #4caf50;
+      color: white;
+      display: inline-block;
+      padding: 8px 20px;
+      border-radius: 20px;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    .content {
+      padding: 40px;
+    }
+
+    .booking-ref-section {
+      background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    }
+
+    .booking-ref-section .label {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .pnr {
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #333;
+      margin: 10px 0;
+      font-family: 'Courier New', monospace;
+    }
+
+    .confirmation-code {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .flight-details {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .flight-details h2 {
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 20px;
+    }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .detail-row:last-child {
+      border-bottom: none;
+    }
+
+    .detail-row .label {
+      color: #666;
+      font-weight: 500;
+    }
+
+    .detail-row .value {
+      color: #333;
+      font-weight: 600;
+    }
+
+    .flight-number {
+      font-size: 24px;
+      color: #667eea;
+      font-weight: 700;
+    }
+
+    .route-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 30px 0;
+      gap: 15px;
+    }
+
+    .airport {
+      text-align: center;
+    }
+
+    .airport-code {
+      font-size: 32px;
+      font-weight: 700;
+      color: #333;
+    }
+
+    .airport-name {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .plane-icon {
+      font-size: 32px;
+      color: #667eea;
+    }
+
+    .passenger-details {
+      background: #f8f9fa;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+    }
+
+    .passenger-details h2 {
+      color: #333;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+
+    .passenger-name {
+      font-size: 18px;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .important-notice {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 25px;
+    }
+
+    .important-notice h3 {
+      color: #856404;
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .important-notice p {
+      color: #856404;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: transform 0.3s;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .form-section {
+      margin-top: 40px;
+      padding-top: 30px;
+      border-top: 2px dashed #e0e0e0;
+    }
+
+    .form-section h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #e0e0e0;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: #667eea;
+    }
+
+    #generateBooking {
+      background: #4caf50;
+    }
+
+    #generateBooking:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>✈️ SkyBooker</h1>
+      <p>Your Trusted Flight Booking Partner</p>
+      <div class="success-badge">✓ Booking Confirmed</div>
+    </div>
+
+    <div class="content">
+      <!-- Booking Reference -->
+      <div class="booking-ref-section">
+        <div class="label">BOOKING REFERENCE</div>
+        <div class="pnr" id="displayPNR">ABC123</div>
+        <div class="confirmation-code">Confirmation Code: ABC123</div>
+      </div>
+
+      <!-- Flight Details -->
+      <div class="flight-details">
+        <h2>Flight Details</h2>
+        
+        <div class="detail-row">
+          <span class="label">Flight Number</span>
+          <span class="value flight-number" id="displayFlightNumber">EK524</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Airline</span>
+          <span class="value" id="displayAirline">Emirates</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Date</span>
+          <span class="value" id="displayDate">Dec 25, 2025</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Departure Time</span>
+          <span class="value" id="displayDepartureTime">10:30 AM</span>
+        </div>
+
+        <div class="detail-row">
+          <span class="label">Arrival Time</span>
+          <span class="value" id="displayArrivalTime">06:45 PM</span>
+        </div>
+      </div>
+
+      <!-- Route Visual -->
+      <div class="route-visual">
+        <div class="airport">
+          <div class="airport-code" id="displayFrom">DXB</div>
+          <div class="airport-name">Dubai</div>
+        </div>
+        <div class="plane-icon">✈️</div>
+        <div class="airport">
+          <div class="airport-code" id="displayTo">JFK</div>
+          <div class="airport-name">New York</div>
+        </div>
+      </div>
+
+      <!-- Passenger Details -->
+      <div class="passenger-details">
+        <h2>Passenger Information</h2>
+        <div class="passenger-name" id="displayPassenger">John Doe</div>
+        <div class="detail-row">
+          <span class="label">Class</span>
+          <span class="value" id="displayClass">Economy</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Seat</span>
+          <span class="value" id="displaySeat">23A</span>
+        </div>
+        <div class="detail-row">
+          <span class="label">Baggage</span>
+          <span class="value" id="displayBaggage">2 x 23kg</span>
+        </div>
+      </div>
+
+      <!-- Important Notice -->
+      <div class="important-notice">
+        <h3>🛡️ Protect Your Travel</h3>
+        <p>
+          Travel with peace of mind! Get instant flight delay and cancellation insurance 
+          with WingFi. Click the WingFi extension icon in your browser to get covered in seconds.
+        </p>
+      </div>
+
+      <button class="cta-button" onclick="alert('This would normally link to manage booking page')">
+        Manage Booking
+      </button>
+
+      <!-- Form to Generate Custom Bookings -->
+      <div class="form-section">
+        <h2>🧪 Test PNR Extraction</h2>
+        <p style="color: #666; margin-bottom: 20px; font-size: 14px;">
+          Generate a custom booking confirmation to test the WingFi extension's auto-detection feature.
+        </p>
+
+        <div class="form-group">
+          <label for="inputPNR">PNR / Booking Reference</label>
+          <input type="text" id="inputPNR" placeholder="e.g., XYZ789" maxlength="6" value="ABC123">
+        </div>
+
+        <div class="form-group">
+          <label for="inputFlightNumber">Flight Number</label>
+          <input type="text" id="inputFlightNumber" placeholder="e.g., EK524" value="EK524">
+        </div>
+
+        <div class="form-group">
+          <label for="inputAirline">Airline Name</label>
+          <input type="text" id="inputAirline" placeholder="e.g., Emirates" value="Emirates">
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassenger">Passenger Name</label>
+          <input type="text" id="inputPassenger" placeholder="e.g., John Doe" value="John Doe">
+        </div>
+
+        <button class="cta-button" id="generateBooking">
+          Generate New Booking
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Airline mappings
+    const airlines = {
+      'EK': 'Emirates',
+      'AI': 'Air India',
+      'QR': 'Qatar Airways',
+      'DL': 'Delta',
+      'LH': 'Lufthansa',
+      'LX': 'Swiss',
+      'TK': 'Turkish Airlines',
+      '6E': 'IndiGo',
+      'AA': 'American Airlines',
+      'BA': 'British Airways'
+    };
+
+    // Generate random PNR
+    function generateRandomPNR() {
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let pnr = '';
+      for (let i = 0; i < 6; i++) {
+        pnr += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+      return pnr;
+    }
+
+    // Handle form submission
+    document.getElementById('generateBooking').addEventListener('click', () => {
+      const pnr = document.getElementById('inputPNR').value.trim().toUpperCase() || generateRandomPNR();
+      const flightNumber = document.getElementById('inputFlightNumber').value.trim().toUpperCase();
+      const airlineName = document.getElementById('inputAirline').value.trim();
+      const passengerName = document.getElementById('inputPassenger').value.trim();
+
+      // Update display
+      document.getElementById('displayPNR').textContent = pnr;
+      document.getElementById('displayFlightNumber').textContent = flightNumber;
+      document.getElementById('displayAirline').textContent = airlineName;
+      document.getElementById('displayPassenger').textContent = passengerName;
+
+      // Auto-detect airline from flight number
+      if (flightNumber.length >= 2) {
+        const airlineCode = flightNumber.substring(0, 2);
+        if (airlines[airlineCode]) {
+          document.getElementById('displayAirline').textContent = airlines[airlineCode];
+        }
+      }
+
+      // Scroll to top to show the generated booking
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+
+      // Show success message
+      alert(`✅ Booking generated!\n\nPNR: ${pnr}\nFlight: ${flightNumber}\n\nNow click the WingFi extension to auto-extract these details!`);
+    });
+
+    // Auto-fill current date
+    const today = new Date();
+    const dateOptions = { year: 'numeric', month: 'short', day: 'numeric' };
+    document.getElementById('displayDate').textContent = today.toLocaleDateString('en-US', dateOptions);
+  </script>
+</body>
+</html>
+
