@@ -125,14 +125,3 @@ You can view:
 
 ---
 
-## Useful Links
-
-**Frontend**: http://localhost:3000 (local)  
-**Chrome Extension**: Load unpacked from `wingFi-extension/`  
-**Deployment Data**: `wingFi-contracts/deployments/97.json`
-
----
-
-**Last Updated**: November 16, 2025  
-**Network**: BSC Testnet (97)
-
