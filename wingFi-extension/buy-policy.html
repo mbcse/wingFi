@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src *;">
+  <title>WingFi - Buy Policy</title>
+  <link rel="stylesheet" href="buy-policy.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <h1>🛡️ WingFi</h1>
+        <p class="subtitle">Flight Insurance Protocol</p>
+      </div>
+      <div class="wallet-info" id="walletInfo">
+        <button id="connectBtn" class="btn-secondary">Connect Wallet</button>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Policy Details Card -->
+      <section class="card policy-details">
+        <h2 class="card-title">Policy Details</h2>
+        <div class="details-grid">
+          <div class="detail-item">
+            <span class="label">PNR</span>
+            <span class="value" id="pnrValue">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Flight ID</span>
+            <span class="value" id="flightValue">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Coverage Amount</span>
+            <span class="value" id="coverageValue">-</span>
+          </div>
+          <div class="detail-item">
+            <span class="label">Premium</span>
+            <span class="value premium" id="premiumValue">-</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pool Selection -->
+      <section class="card pool-selection">
+        <h2 class="card-title">Select Liquidity Pool</h2>
+        <div class="pool-options">
+          <label class="pool-option">
+            <input type="radio" name="pool" value="global" checked>
+            <div class="pool-card">
+              <div class="pool-header">
+                <span class="pool-icon">🌍</span>
+                <span class="pool-name">Global Pool</span>
+              </div>
+              <p class="pool-description">Backed by shared liquidity across all flights. Instant coverage.</p>
+              <div class="pool-stats">
+                <span class="stat">TVL: <strong id="globalTVL">-</strong></span>
+                <span class="stat">APY: <strong>8.5%</strong></span>
+              </div>
+            </div>
+          </label>
+
+          <label class="pool-option">
+            <input type="radio" name="pool" value="airline">
+            <div class="pool-card">
+              <div class="pool-header">
+                <span class="pool-icon">✈️</span>
+                <span class="pool-name" id="airlinePoolName">Airline Pool</span>
+              </div>
+              <p class="pool-description">Airline-specific coverage with optimized rates.</p>
+              <div class="pool-stats">
+                <span class="stat">TVL: <strong id="airlineTVL">-</strong></span>
+                <span class="stat">APY: <strong>9.2%</strong></span>
+              </div>
+            </div>
+          </label>
+
+          <label class="pool-option">
+            <input type="radio" name="pool" value="crowdfill">
+            <div class="pool-card">
+              <div class="pool-header">
+                <span class="pool-icon">👥</span>
+                <span class="pool-name">Crowd-Fill Pool</span>
+              </div>
+              <p class="pool-description">Community-backed coverage. May require funding time.</p>
+              <div class="pool-stats">
+                <span class="stat">Contributors: <strong>Multiple LPs</strong></span>
+                <span class="stat">Best Rates</span>
+              </div>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- Transaction Steps -->
+      <section class="card transaction-steps">
+        <h2 class="card-title">Purchase Steps</h2>
+        <div class="steps">
+          <div class="step" id="step1">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Connect Wallet</h3>
+              <p class="step-status" id="step1Status">Waiting...</p>
+            </div>
+          </div>
+          <div class="step" id="step2">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Approve USDC</h3>
+              <p class="step-status" id="step2Status">Pending wallet connection</p>
+            </div>
+          </div>
+          <div class="step" id="step3">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Buy Policy</h3>
+              <p class="step-status" id="step3Status">Pending approval</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Action Buttons -->
+      <section class="actions">
+        <button id="approveBtn" class="btn-primary" disabled>
+          <span class="btn-text">Approve USDC</span>
+          <span class="btn-loader" style="display: none;">⏳</span>
+        </button>
+        <button id="buyBtn" class="btn-primary" disabled>
+          <span class="btn-text">Buy Policy</span>
+          <span class="btn-loader" style="display: none;">⏳</span>
+        </button>
+      </section>
+
+      <!-- Success Message -->
+      <section class="success-message" id="successMessage" style="display: none;">
+        <div class="success-icon">✅</div>
+        <h2>Policy Purchased Successfully!</h2>
+        <p>Your flight insurance is now active.</p>
+        <div class="policy-id">
+          <span>Policy ID: </span>
+          <span id="policyIdValue">-</span>
+        </div>
+        <button id="closeBtn" class="btn-secondary">Close</button>
+      </section>
+
+      <!-- Error Message -->
+      <section class="error-message" id="errorMessage" style="display: none;">
+        <div class="error-icon">❌</div>
+        <h3>Transaction Failed</h3>
+        <p id="errorText">-</p>
+        <button id="retryBtn" class="btn-secondary">Retry</button>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>Powered by WingFi Protocol • BSC Testnet</p>
+    </footer>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="ethereum-bridge.js"></script>
+  <script src="buy-policy.js"></script>
+</body>
+</html>
+
