@@ -1,0 +1,12 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="britishGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#075AAA;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#DC002E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#012169;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" fill="url(#britishGrad)" rx="20"/>
+  <text x="100" y="100" font-family="Arial, sans-serif" font-size="80" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">BA</text>
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" opacity="0.9">BRITISH AIRWAYS</text>
+</svg>

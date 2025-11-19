@@ -9,8 +9,8 @@ import { Address } from 'viem';
  * Hook to get all airline pools from deployment
  */
 export function useAirlinePools() {
-  const airlinePools = Object.entries(contracts.airlinePools).map(([code, pool]) => ({
-    code,
+  const airlinePools = contracts.airlinePools.map(pool => ({
+    code: pool.code,
     name: pool.name,
     address: pool.address,
   }));
@@ -105,7 +105,7 @@ export function useAirlinePoolData(poolAddress: Address, airlineName: string, ai
     airlineCode, // Added for dashboard
     airlineName, // Added for dashboard
     airline: airlineName,
-    logo: `/airlines/${airlineCode.toLowerCase()}.png`,
+    logo: `/airlines/${airlineCode.toLowerCase()}.svg`,
     onTime: mockMetrics.onTime,
     delayRate: mockMetrics.delayRate,
     cancellationRate: mockMetrics.cancellationRate,
