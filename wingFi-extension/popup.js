@@ -1,4 +1,4 @@
-// Popup script for WingFi Insurance Extension
+// Popup script for AeroFi Insurance Extension
 
 // Note: This extension uses MetaMask's injected ethereum provider
 // For production, consider bundling ethers.js or web3.js
@@ -22,7 +22,7 @@ let premiumData = {
  * Initialize popup
  */
 document.addEventListener('DOMContentLoaded', async () => {
-  console.log('🚀 WingFi Popup loaded');
+  console.log('🚀 AeroFi Popup loaded');
   console.log('📝 Config loaded:', CONFIG.CONTRACTS.STABLECOIN ? 'YES' : 'NO');
   
   // Setup event listeners first
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('Error loading flight details:', error);
   }
   
-  console.log('✅ WingFi ready!');
+  console.log('✅ AeroFi ready!');
 });
 
 /**

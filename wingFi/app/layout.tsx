@@ -8,7 +8,7 @@ const _geist = Geist({ subsets: ['latin'] });
 const _geistMono = Geist_Mono({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'WingFi - LP Dashboard',
+  title: 'AeroFi - LP Dashboard',
   description: 'DeFi dashboard for flight insurance liquidity providers',
   generator: 'v0.app',
   icons: {

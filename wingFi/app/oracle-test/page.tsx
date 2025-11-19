@@ -188,7 +188,7 @@ export default function OracleTestPage() {
             <div className="mt-4 p-3 bg-slate-700/50 rounded-lg">
               <p className="text-xs text-slate-400 mb-1">Transaction Hash:</p>
               <a
-                href={`https://testnet.bscscan.com/tx/${hash}`}
+                href={`https://devnet-explorer.rayls.com/tx/${hash}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-indigo-400 hover:text-indigo-300 break-all"

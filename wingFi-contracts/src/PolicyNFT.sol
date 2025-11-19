@@ -51,7 +51,7 @@ contract PolicyNFT is ERC721, Ownable, ReentrancyGuard {
         _;
     }
     
-    constructor() ERC721("WingFi Policy", "WFP") Ownable(msg.sender) {}
+    constructor() ERC721("AeroFi Policy", "WFP") Ownable(msg.sender) {}
     
     function setMinter(address _minter) external onlyOwner {
         address oldMinter = minter;

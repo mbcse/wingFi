@@ -1,12 +1,35 @@
 import { createConfig, http } from 'wagmi';
-import { bscTestnet } from 'wagmi/chains';
+import { defineChain } from 'viem';
 import { metaMask, walletConnect } from 'wagmi/connectors';
 
-// BSC Testnet RPC
-const bscTestnetRpc = 'https://data-seed-prebsc-1-s1.binance.org:8545';
+// Define Rayls Testnet Chain
+export const raylsTestnet = defineChain({
+  id: 123123,
+  name: 'Rayls Testnet',
+  nativeCurrency: {
+    name: 'USDgas',
+    symbol: 'USDgas',
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://devnet-rpc.rayls.com'],
+    },
+    public: {
+      http: ['https://devnet-rpc.rayls.com'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Rayls Explorer',
+      url: 'https://devnet-explorer.rayls.com',
+    },
+  },
+  testnet: true,
+});
 
 export const wagmiConfig = createConfig({
-  chains: [bscTestnet],
+  chains: [raylsTestnet],
   connectors: [
     metaMask(),
     walletConnect({
@@ -14,10 +37,10 @@ export const wagmiConfig = createConfig({
     }),
   ],
   transports: {
-    [bscTestnet.id]: http(bscTestnetRpc),
+    [raylsTestnet.id]: http('https://devnet-rpc.rayls.com'),
   },
 });
 
 // Contract addresses (will be loaded from deployment JSON)
-export const CHAIN_ID = 97; // BSC Testnet
+export const CHAIN_ID = 123123; // Rayls Testnet
 

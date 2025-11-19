@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# WingFi Deployment Script
+# AeroFi Deployment Script
 # This script deploys contracts and generates deployment JSON
 
 set -e
@@ -19,7 +19,7 @@ GAS_PRICE=${GAS_PRICE:-""}  # Gas price in wei (leave empty for auto, or set e.g
 PRIORITY_FEE=${PRIORITY_FEE:-""}  # Priority fee (gas tip cap) in wei (leave empty for auto, or set e.g., 100000000 for 0.1 gwei)
 
 echo -e "${BLUE}========================================${NC}"
-echo -e "${BLUE}WingFi Contract Deployment${NC}"
+echo -e "${BLUE}AeroFi Contract Deployment${NC}"
 echo -e "${BLUE}Chain ID: ${CHAIN_ID}${NC}"
 echo -e "${BLUE}========================================${NC}\n"
 

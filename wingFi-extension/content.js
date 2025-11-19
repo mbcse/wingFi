@@ -1,7 +1,7 @@
 // Content script: ISOLATED World - Can use chrome.* APIs but not window.ethereum
 // Communicates with content-main.js (MAIN world) via window.postMessage
 
-console.log('WingFi: Isolated world script loaded');
+console.log('AeroFi: Isolated world script loaded');
 
 /**
  * ========================================
@@ -66,7 +66,7 @@ window.addEventListener('message', (event) => {
 window.addEventListener('message', (event) => {
   if (event.source !== window) return;
   if (event.data.type === 'WINGFI_METAMASK_READY') {
-    console.log('WingFi Isolated: MetaMask is ready!');
+    console.log('AeroFi Isolated: MetaMask is ready!');
   }
 });
 
@@ -74,7 +74,7 @@ window.addEventListener('message', (event) => {
  * Handle MetaMask requests from extension popup
  */
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  console.log('WingFi Content: Received message', request.type);
+  console.log('AeroFi Content: Received message', request.type);
   
   // Handle PING (to check if content script is loaded)
   if (request.type === 'PING') {
@@ -84,18 +84,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   
   // Handle MetaMask provider check
   if (request.type === 'CHECK_METAMASK') {
-    console.log('WingFi Isolated: Checking for MetaMask via MAIN world...');
+    console.log('AeroFi Isolated: Checking for MetaMask via MAIN world...');
     
     sendToMainWorld('WINGFI_CHECK_PROVIDER')
       .then(response => {
-        console.log('WingFi Isolated: Provider check result:', response);
+        console.log('AeroFi Isolated: Provider check result:', response);
         sendResponse({
           available: response.available,
           isMetaMask: response.isMetaMask
         });
       })
       .catch(error => {
-        console.error('WingFi Isolated: Provider check failed:', error);
+        console.error('AeroFi Isolated: Provider check failed:', error);
         sendResponse({
           available: false,
           isMetaMask: false,
@@ -108,18 +108,18 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   
   // Handle MetaMask method calls
   if (request.type === 'METAMASK_REQUEST') {
-    console.log('WingFi Isolated: Relaying eth request to MAIN world:', request.method);
+    console.log('AeroFi Isolated: Relaying eth request to MAIN world:', request.method);
     
     sendToMainWorld('WINGFI_ETH_REQUEST', {
       method: request.method,
       params: request.params || []
     })
       .then(response => {
-        console.log('WingFi Isolated: Got response from MAIN world:', response.success);
+        console.log('AeroFi Isolated: Got response from MAIN world:', response.success);
         sendResponse(response);
       })
       .catch(error => {
-        console.error('WingFi Isolated: Request failed:', error);
+        console.error('AeroFi Isolated: Request failed:', error);
         sendResponse({
           success: false,
           error: error.message
@@ -305,7 +305,7 @@ window.addEventListener('load', () => {
     const details = extractFlightDetails();
     
     if (details.pnr || details.flightNumber) {
-      console.log('WingFi: Flight details detected', details);
+      console.log('AeroFi: Flight details detected', details);
       
       // Store in chrome storage for popup to access
       chrome.storage.local.set({

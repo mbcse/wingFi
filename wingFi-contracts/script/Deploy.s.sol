@@ -24,7 +24,7 @@ contract DeployScript is Script {
         vm.startBroadcast(deployerPrivateKey);
         
         console.log("\n========================================");
-        console.log("WingFi Complete Deployment Script");
+        console.log("AeroFi Complete Deployment Script");
         console.log("Chain ID:", chainId);
         console.log("========================================\n");
         console.log("Deployer:", deployer);

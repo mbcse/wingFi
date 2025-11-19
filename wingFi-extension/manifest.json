@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "WingFi Insurance",
+  "name": "AeroFi Insurance",
   "version": "1.0.0",
   "description": "Buy flight insurance directly from booking confirmation pages",
   "permissions": [

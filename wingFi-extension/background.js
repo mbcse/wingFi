@@ -1,6 +1,6 @@
-// Background service worker for WingFi extension
+// Background service worker for AeroFi extension
 
-console.log('WingFi Insurance Extension: Background service worker loaded');
+console.log('AeroFi Insurance Extension: Background service worker loaded');
 
 /**
  * ========================================

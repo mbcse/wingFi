@@ -189,7 +189,7 @@ export default function MyPoliciesPage() {
         {/* Footer */}
         <div className="text-center mt-12 pt-6 border-t border-slate-700">
           <p className="text-slate-500 text-sm">
-            Powered by WingFi Protocol • BSC Testnet
+            Powered by AeroFi Protocol • Rayls Testnet
           </p>
         </div>
       </div>

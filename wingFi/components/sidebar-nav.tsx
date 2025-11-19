@@ -26,7 +26,7 @@ export function SidebarNav() {
     <aside className="fixed left-0 top-0 h-screen w-64 border-r border-border bg-sidebar p-6">
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-foreground">
-          <span className="text-primary">Wing</span>Fi
+          <span className="text-primary">Aero</span>Fi
         </h1>
         <p className="text-sm text-muted-foreground">LP Dashboard</p>
       </div>

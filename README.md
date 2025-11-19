@@ -1,9 +1,9 @@
-# 🛫 WingFi Protocol
+# 🛫 AeroFi Protocol
 
 > **The First DeFi Prediction Market for Flight Delays**  
 > Democratizing travel insurance through blockchain technology
 
-[![BSC Testnet](https://img.shields.io/badge/BSC-Testnet-yellow)](https://testnet.bscscan.com)
+[![Rayls Testnet](https://img.shields.io/badge/Rayls-Testnet-blue)](https://devnet-explorer.rayls.com)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.20-green)](https://soliditylang.org/)
 
 
@@ -32,11 +32,11 @@ Flight delays cost passengers **$40+ billion annually**, yet traditional insuran
 
 ---
 
-## 💡 The WingFi Solution
+## 💡 The AeroFi Solution
 
 ### A New DeFi Primitive: Travel Risk Markets
 
-WingFi introduces **airline pool liquidity**, where:
+AeroFi introduces **airline pool liquidity**, where:
 
 1. **Travelers** buy parametric insurance with transparent pricing
 2. **DeFi Investors** provide liquidity to airline-specific pools and earn APY
@@ -278,34 +278,34 @@ If utilization > 80%: ⚠️ Premiums increase, new policies limited
 
 ## 📜 Contract Addresses
 
-### BSC Testnet (Chain ID: 97)
+### Rayls Testnet (Chain ID: 123123)
 
 **Core Contracts:**
 
-| Contract | Address | BSCScan |
-|----------|---------|---------|
-| Mock USDC | `0x0615ed72dac620046b867e16cd59f028c94b7aa9` | [View](https://testnet.bscscan.com/address/0x0615ed72dac620046b867e16cd59f028c94b7aa9) |
-| Policy NFT | `0xf8c1bf3a252beeee3fd1946e6ca9d5def777e82b` | [View](https://testnet.bscscan.com/address/0xf8c1bf3a252beeee3fd1946e6ca9d5def777e82b) |
-| Global Pool | `0x6c2ff189a836b65192483e2ebb170558e489e1bb` | [View](https://testnet.bscscan.com/address/0x6c2ff189a836b65192483e2ebb170558e489e1bb) |
-| Oracle Adapter | `0x679c538aacff218b798fb4de33f61f93e704fb73` | [View](https://testnet.bscscan.com/address/0x679c538aacff218b798fb4de33f61f93e704fb73) |
-| Pool Manager | `0xb3fc44c600379b2d9afee86dffa9d46120063cf8` | [View](https://testnet.bscscan.com/address/0xb3fc44c600379b2d9afee86dffa9d46120063cf8) |
+| Contract | Address | Explorer |
+|----------|---------|----------|
+| Mock USDC | `0x3c4f65d01eae7423c681398125ef19810a7ce45f` | [View](https://devnet-explorer.rayls.com/address/0x3c4f65d01eae7423c681398125ef19810a7ce45f) |
+| Policy NFT | `0x95f451f60a303a321a8b6033e36a635d39fdaac8` | [View](https://devnet-explorer.rayls.com/address/0x95f451f60a303a321a8b6033e36a635d39fdaac8) |
+| Global Pool | `0xb3e71b55c5faebba2c78b100f3629d7797c7ffdb` | [View](https://devnet-explorer.rayls.com/address/0xb3e71b55c5faebba2c78b100f3629d7797c7ffdb) |
+| Oracle Adapter | `0x63005f878bfb52df7c4481c09f3e895d6fd5960d` | [View](https://devnet-explorer.rayls.com/address/0x63005f878bfb52df7c4481c09f3e895d6fd5960d) |
+| Pool Manager | `0x4cf1aa7e7be67dc0391d67259ae495d7bc49c51b` | [View](https://devnet-explorer.rayls.com/address/0x4cf1aa7e7be67dc0391d67259ae495d7bc49c51b) |
 
 **Airline Pools:**
 
-| Airline | Code | Address | BSCScan |
-|---------|------|---------|---------|
-| Emirates | EK | `0x64d2f13d7b1e5d0772bd4ffbf880cd96920c4c5a` | [View](https://testnet.bscscan.com/address/0x64d2f13d7b1e5d0772bd4ffbf880cd96920c4c5a) |
-| Air India | AI | `0x4be4e62dc4f5061504454c109a3d2aae71620920` | [View](https://testnet.bscscan.com/address/0x4be4e62dc4f5061504454c109a3d2aae71620920) |
-| Qatar Airways | QR | `0x7e4b1ad7e3905b3fa8b3e72aa98d16be644ea3f2` | [View](https://testnet.bscscan.com/address/0x7e4b1ad7e3905b3fa8b3e72aa98d16be644ea3f2) |
-| Delta | DL | `0x673898837e0d7f9117603c3c8618b78295d3057a` | [View](https://testnet.bscscan.com/address/0x673898837e0d7f9117603c3c8618b78295d3057a) |
-| Lufthansa | LH | `0x4cbeca11c8405ea9e5c3dce7b46832efc976d698` | [View](https://testnet.bscscan.com/address/0x4cbeca11c8405ea9e5c3dce7b46832efc976d698) |
-| Swiss | LX | `0xe95327a94e82fb58950255d8a2e42b6d87bea255` | [View](https://testnet.bscscan.com/address/0xe95327a94e82fb58950255d8a2e42b6d87bea255) |
-| Turkish | TK | `0xbcaee4391267949580df76d6dbea8f4ae5298102` | [View](https://testnet.bscscan.com/address/0xbcaee4391267949580df76d6dbea8f4ae5298102) |
-| IndiGo | 6E | `0x450b244ffc23608cab470c344fcb4c9cc483005c` | [View](https://testnet.bscscan.com/address/0x450b244ffc23608cab470c344fcb4c9cc483005c) |
-| American | AA | `0xaed36919502c17621dde9c9df7acc7b138e1e249` | [View](https://testnet.bscscan.com/address/0xaed36919502c17621dde9c9df7acc7b138e1e249) |
-| British Airways | BA | `0x4ef821cc20e88261d913da54dcd259a5dffbf4a6` | [View](https://testnet.bscscan.com/address/0x4ef821cc20e88261d913da54dcd259a5dffbf4a6) |
+| Airline | Code | Address | Explorer |
+|---------|------|---------|----------|
+| Emirates | EK | `0x96917887dc7d146e3a2191405fa09ebf616fe4dd` | [View](https://devnet-explorer.rayls.com/address/0x96917887dc7d146e3a2191405fa09ebf616fe4dd) |
+| Air India | AI | `0x2efee936fe35feacaadc46909d6459a9b6915341` | [View](https://devnet-explorer.rayls.com/address/0x2efee936fe35feacaadc46909d6459a9b6915341) |
+| Qatar Airways | QR | `0x4c417571d9602a894b129efa2fea6c9073d2736d` | [View](https://devnet-explorer.rayls.com/address/0x4c417571d9602a894b129efa2fea6c9073d2736d) |
+| Delta | DL | `0xd51b1d85b3fddfe52f2e49df877489ceb7aded94` | [View](https://devnet-explorer.rayls.com/address/0xd51b1d85b3fddfe52f2e49df877489ceb7aded94) |
+| Lufthansa | LH | `0x1d52ccded1d5c6c6f43ec61fd8132f0c23592bb8` | [View](https://devnet-explorer.rayls.com/address/0x1d52ccded1d5c6c6f43ec61fd8132f0c23592bb8) |
+| Swiss | LX | `0xa8defb37c7af0f938f965e9a891790acfa7273f5` | [View](https://devnet-explorer.rayls.com/address/0xa8defb37c7af0f938f965e9a891790acfa7273f5) |
+| Turkish | TK | `0x6bc3fe427d51634e6c497b2a388efa4f8a830081` | [View](https://devnet-explorer.rayls.com/address/0x6bc3fe427d51634e6c497b2a388efa4f8a830081) |
+| IndiGo | 6E | `0x2b72de0d64037dcfb74161b24e84dc75a8076a9f` | [View](https://devnet-explorer.rayls.com/address/0x2b72de0d64037dcfb74161b24e84dc75a8076a9f) |
+| American | AA | `0xc63e000875655c9ed8fac47f5ea96c8986b7ad05` | [View](https://devnet-explorer.rayls.com/address/0xc63e000875655c9ed8fac47f5ea96c8986b7ad05) |
+| British Airways | BA | `0x2a2f488377ef8bec87d195d9ae795164150434be` | [View](https://devnet-explorer.rayls.com/address/0x2a2f488377ef8bec87d195d9ae795164150434be) |
 
-✅ **All contracts verified on BSCScan**
+✅ **All contracts deployed on Rayls Testnet**
 
 ---
 
@@ -314,7 +314,7 @@ If utilization > 80%: ⚠️ Premiums increase, new policies limited
 ### For Travelers (Buy Insurance)
 
 1. **Visit DApp**: http://localhost:3000
-2. **Connect Wallet**: MetaMask on BSC Testnet
+2. **Connect Wallet**: MetaMask on Rayls Testnet
 3. **Choose Flight**: Enter PNR or flight details
 4. **Select Pool**: Global (diversified) or specific airline
 5. **Pay Premium**: Approve USDC, buy policy
@@ -348,7 +348,7 @@ git clone https://github.com/wingfi/protocol
 cd WINGFI
 
 # Install dependencies
-cd wingFi
+cd aeroFi
 npm install
 
 # Copy deployment data
@@ -523,7 +523,7 @@ npm run dev
 - Prediction market volume: **$10B** (2024, growing)
 - Annual air travelers: **4.5 billion**
 
-**WingFi Unique Position:**
+**AeroFi Unique Position:**
 - First DeFi protocol for flight insurance
 - Only platform with airline-specific pools
 - Combines insurance + prediction market dynamics
@@ -536,7 +536,7 @@ npm run dev
 - Can't capture upside from flight performance knowledge
 - No loyalty rewards or compounding
 
-**WingFi empowers frequent travelers:**
+**AeroFi empowers frequent travelers:**
 - Become an LP in pools for routes you fly
 - Earn yield from your travel expertise
 - Hedge your own flight risks
@@ -551,7 +551,7 @@ npm run dev
 - Smart contract development
 - Frontend DApp
 - Chrome extension
-- BSC Testnet deployment
+- Rayls Testnet deployment
 - 10 airline pools live
 
 ### 🚀 Phase 2: Mainnet (Q1 2025)
@@ -579,7 +579,7 @@ npm run dev
 
 
 
-## 🌟 Why WingFi Will Dominate
+## 🌟 Why AeroFi Will Dominate
 
 ### It's Not Just Insurance - It's a DeFi Money Lego
 

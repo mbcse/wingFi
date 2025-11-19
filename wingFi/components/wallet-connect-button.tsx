@@ -8,10 +8,20 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Wallet, LogOut } from 'lucide-react';
+import { Wallet, LogOut, AlertTriangle } from 'lucide-react';
 
 export function WalletConnectButton() {
-  const { address, isConnected, connect, disconnect } = useWallet();
+  const { address, isConnected, connect, disconnect, isWrongNetwork, switchToRayls } = useWallet();
+
+  // Show switch network button if on wrong network
+  if (isConnected && isWrongNetwork) {
+    return (
+      <Button variant="destructive" className="gap-2" onClick={switchToRayls}>
+        <AlertTriangle className="h-4 w-4" />
+        Switch to Rayls
+      </Button>
+    );
+  }
 
   if (isConnected && address) {
     return (

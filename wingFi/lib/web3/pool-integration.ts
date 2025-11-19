@@ -154,7 +154,7 @@ export function useWithdraw(poolAddress: Address) {
  */
 export function useDepositWithApproval(poolAddress: Address, userAddress?: Address) {
   const { approve, isPending: isApproving, isSuccess: isApproved, hash: approvalHash } = useApproveToken();
-  const { deposit, isPending: isDepositing, isSuccess: isDeposited } = useDeposit(poolAddress);
+  const { deposit, isPending: isDepositing, isSuccess: isDeposited, hash: depositHash } = useDeposit(poolAddress);
   const { data: allowance, refetch: refetchAllowance } = useTokenAllowance(userAddress, poolAddress);
 
   const depositWithApproval = async (amount: string) => {
@@ -162,10 +162,13 @@ export function useDepositWithApproval(poolAddress: Address, userAddress?: Addre
 
     const amountWei = parseUnits(amount, 18);
     
+    // Refetch allowance to get latest value
+    const { data: latestAllowance } = await refetchAllowance();
+    const currentAllowance = latestAllowance as bigint | undefined;
+    
     // Check if approval is needed
-    const currentAllowance = allowance as bigint | undefined;
     if (!currentAllowance || currentAllowance < amountWei) {
-      // Approve first - deposit will be triggered after approval in the component
+      // Approve first
       approve(poolAddress, amountWei);
       return { needsApproval: true };
     }
@@ -175,6 +178,13 @@ export function useDepositWithApproval(poolAddress: Address, userAddress?: Addre
     return { needsApproval: false };
   };
 
+  const currentAllowance = allowance as bigint | undefined;
+  const needsApproval = (amount: string) => {
+    if (!currentAllowance) return true;
+    const amountWei = parseUnits(amount, 18);
+    return currentAllowance < amountWei;
+  };
+
   return {
     depositWithApproval,
     isApproving,
@@ -182,8 +192,10 @@ export function useDepositWithApproval(poolAddress: Address, userAddress?: Addre
     approvalHash,
     isDepositing,
     isDeposited,
+    depositHash,
     refetchAllowance,
-    needsApproval: allowance && typeof allowance === 'bigint' ? allowance < parseUnits('0.01', 18) : true,
+    needsApproval,
+    currentAllowance,
   };
 }
 

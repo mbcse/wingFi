@@ -1,12 +1,12 @@
-// Configuration for WingFi Extension - Contract addresses and ABIs
+// Configuration for AeroFi Extension - Contract addresses and ABIs
 // Auto-generated from deployment data
 
 const CONFIG = {
-  // BSC Testnet
-  CHAIN_ID: 97,
-  CHAIN_NAME: 'BSC Testnet',
-  RPC_URL: 'https://data-seed-prebsc-1-s1.binance.org:8545',
-  EXPLORER_URL: 'https://testnet.bscscan.com',
+  // Network Configuration (auto-detected)
+  CHAIN_ID: 123123,
+  CHAIN_NAME: 'Rayls Testnet',
+  RPC_URL: 'https://devnet-rpc.rayls.com',
+  EXPLORER_URL: 'https://devnet-explorer.rayls.com',
   
   // Contract addresses
   CONTRACTS: {
@@ -416,4 +416,4 @@ const CONFIG = {
 };
 
 // No need to load dynamically - all data is embedded
-console.log('WingFi Extension: Config loaded with', Object.keys(CONFIG.CONTRACTS.AIRLINE_POOLS).length, 'airline pools');
+console.log('AeroFi Extension: Config loaded with', Object.keys(CONFIG.CONTRACTS.AIRLINE_POOLS).length, 'airline pools');

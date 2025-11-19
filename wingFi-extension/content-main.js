@@ -3,7 +3,7 @@
  * Runs in the same context as the page, has access to window.ethereum
  */
 
-console.log('WingFi: Main world script loaded');
+console.log('AeroFi: Main world script loaded');
 
 // Check for ethereum provider
 let ethereumProvider = null;
@@ -11,7 +11,7 @@ let ethereumProvider = null;
 function checkForProvider() {
   if (typeof window.ethereum !== 'undefined') {
     ethereumProvider = window.ethereum;
-    console.log('WingFi: Found ethereum provider', window.ethereum.isMetaMask ? '(MetaMask)' : '(Other)');
+    console.log('AeroFi: Found ethereum provider', window.ethereum.isMetaMask ? '(MetaMask)' : '(Other)');
     return true;
   }
   return false;
@@ -22,7 +22,7 @@ checkForProvider();
 
 // Listen for MetaMask injection
 window.addEventListener('ethereum#initialized', () => {
-  console.log('WingFi: ethereum#initialized event');
+  console.log('AeroFi: ethereum#initialized event');
   checkForProvider();
 });
 
@@ -34,12 +34,12 @@ const checkInterval = setInterval(() => {
   if (ethereumProvider || checkAttempts >= maxCheckAttempts) {
     clearInterval(checkInterval);
     if (ethereumProvider) {
-      console.log('WingFi: ✅ MetaMask detected after', checkAttempts, 'attempts');
+      console.log('AeroFi: ✅ MetaMask detected after', checkAttempts, 'attempts');
       // Notify isolated world
       window.postMessage({ type: 'WINGFI_METAMASK_READY', isMetaMask: ethereumProvider.isMetaMask }, '*');
     } else {
-      console.warn('WingFi: ⚠️ MetaMask NOT detected after', maxCheckAttempts, 'attempts');
-      console.warn('WingFi: This may mean MetaMask is not installed or is disabled');
+      console.warn('AeroFi: ⚠️ MetaMask NOT detected after', maxCheckAttempts, 'attempts');
+      console.warn('AeroFi: This may mean MetaMask is not installed or is disabled');
     }
     return;
   }
@@ -60,24 +60,24 @@ window.addEventListener('message', async (event) => {
   
   const message = event.data;
   
-  // Check if it's a WingFi message
+  // Check if it's a AeroFi message
   if (!message.type || !message.type.startsWith('WINGFI_')) return;
   
-  console.log('WingFi Main: Received message', message.type);
+  console.log('AeroFi Main: Received message', message.type);
   
   // Handle ethereum provider check
   if (message.type === 'WINGFI_CHECK_PROVIDER') {
     // Check one more time
     const available = checkForProvider();
     
-    console.log('WingFi Main: Provider check requested, available:', available);
+    console.log('AeroFi Main: Provider check requested, available:', available);
     
     // If not available, wait a bit and try again
     if (!available) {
-      console.log('WingFi Main: Provider not available, waiting 2s and rechecking...');
+      console.log('AeroFi Main: Provider not available, waiting 2s and rechecking...');
       setTimeout(() => {
         const retryAvailable = checkForProvider();
-        console.log('WingFi Main: Retry check, available:', retryAvailable);
+        console.log('AeroFi Main: Retry check, available:', retryAvailable);
         window.postMessage({
           type: 'WINGFI_PROVIDER_RESPONSE',
           requestId: message.requestId,
@@ -102,8 +102,8 @@ window.addEventListener('message', async (event) => {
     checkForProvider();
     
     if (!ethereumProvider) {
-      console.error('WingFi Main: MetaMask not available for request:', message.method);
-      console.error('WingFi Main: window.ethereum exists?', typeof window.ethereum !== 'undefined');
+      console.error('AeroFi Main: MetaMask not available for request:', message.method);
+      console.error('AeroFi Main: window.ethereum exists?', typeof window.ethereum !== 'undefined');
       window.postMessage({
         type: 'WINGFI_ETH_RESPONSE',
         requestId: message.requestId,
@@ -114,13 +114,13 @@ window.addEventListener('message', async (event) => {
     }
     
     try {
-      console.log('WingFi Main: Calling ethereum', message.method);
+      console.log('AeroFi Main: Calling ethereum', message.method);
       const result = await ethereumProvider.request({
         method: message.method,
         params: message.params || []
       });
       
-      console.log('WingFi Main: Result', result);
+      console.log('AeroFi Main: Result', result);
       window.postMessage({
         type: 'WINGFI_ETH_RESPONSE',
         requestId: message.requestId,
@@ -128,7 +128,7 @@ window.addEventListener('message', async (event) => {
         result: result
       }, '*');
     } catch (error) {
-      console.error('WingFi Main: Error', error);
+      console.error('AeroFi Main: Error', error);
       window.postMessage({
         type: 'WINGFI_ETH_RESPONSE',
         requestId: message.requestId,
@@ -140,5 +140,5 @@ window.addEventListener('message', async (event) => {
   }
 });
 
-console.log('WingFi: Main world script ready');
+console.log('AeroFi: Main world script ready');
 

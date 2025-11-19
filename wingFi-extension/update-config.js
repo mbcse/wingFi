@@ -9,7 +9,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Path to deployment JSON (from contracts project)
-const deploymentPath = path.join(__dirname, '../wingFi-contracts/deployments/97.json');
+// Will auto-detect chain ID from deployment file
+const deploymentPath = path.join(__dirname, '../wingFi-contracts/deployments/123123.json');
 const configPath = path.join(__dirname, 'config.js');
 
 async function updateConfig() {
@@ -35,15 +36,15 @@ async function updateConfig() {
     console.log('  - Airline Pools:', Object.keys(deployment.contracts.AirlinePools).length);
     
     // Create embedded config
-    const configContent = `// Configuration for WingFi Extension - Contract addresses and ABIs
+    const configContent = `// Configuration for AeroFi Extension - Contract addresses and ABIs
 // Auto-generated from deployment data
 
 const CONFIG = {
-  // BSC Testnet
+  // Network Configuration (auto-detected)
   CHAIN_ID: ${deployment.chainId},
-  CHAIN_NAME: 'BSC Testnet',
-  RPC_URL: 'https://data-seed-prebsc-1-s1.binance.org:8545',
-  EXPLORER_URL: 'https://testnet.bscscan.com',
+  CHAIN_NAME: '${deployment.chainId === 123123 ? 'Rayls Testnet' : 'Unknown Network'}',
+  RPC_URL: '${deployment.chainId === 123123 ? 'https://devnet-rpc.rayls.com' : ''}',
+  EXPLORER_URL: '${deployment.chainId === 123123 ? 'https://devnet-explorer.rayls.com' : ''}',
   
   // Contract addresses
   CONTRACTS: {
@@ -104,7 +105,7 @@ const CONFIG = {
 };
 
 // No need to load dynamically - all data is embedded
-console.log('WingFi Extension: Config loaded with', Object.keys(CONFIG.CONTRACTS.AIRLINE_POOLS).length, 'airline pools');
+console.log('AeroFi Extension: Config loaded with', Object.keys(CONFIG.CONTRACTS.AIRLINE_POOLS).length, 'airline pools');
 `;
     
     // Write config file

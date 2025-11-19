@@ -113,7 +113,7 @@ export default function BuyPolicyPage({ searchParams }: BuyPolicyPageProps) {
         <div className="flex items-center justify-between mb-8 pb-6 border-b border-slate-700">
           <div>
             <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-              🛡️ WingFi Insurance
+              🛡️ AeroFi Insurance
             </h1>
             <p className="text-slate-400 mt-1">Flight Protection Protocol</p>
           </div>
@@ -297,7 +297,7 @@ export default function BuyPolicyPage({ searchParams }: BuyPolicyPageProps) {
         {/* Footer */}
         <div className="text-center mt-8 pt-6 border-t border-slate-700">
           <p className="text-slate-500 text-sm">
-            Powered by WingFi Protocol • BSC Testnet
+            Powered by AeroFi Protocol • Rayls Testnet
           </p>
         </div>
       </div>

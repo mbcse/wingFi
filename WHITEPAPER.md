@@ -1,4 +1,4 @@
-# WingFi Protocol White Paper
+# AeroFi Protocol White Paper
 
 **Decentralized Flight Delay Insurance Protocol**
 
@@ -8,7 +8,7 @@ Version 1.0 | November 2025
 
 ## Executive Summary
 
-WingFi is a decentralized protocol that provides automated, transparent, and instant flight delay insurance powered by smart contracts on the Binance Smart Chain. The protocol eliminates traditional insurance inefficiencies through blockchain technology, oracle-based automation, and community-driven liquidity pools.
+AeroFi is a decentralized protocol that provides automated, transparent, and instant flight delay insurance powered by smart contracts on the Binance Smart Chain. The protocol eliminates traditional insurance inefficiencies through blockchain technology, oracle-based automation, and community-driven liquidity pools.
 
 ---
 
@@ -43,11 +43,11 @@ WingFi is a decentralized protocol that provides automated, transparent, and ins
 
 ---
 
-## 2. The WingFi Solution
+## 2. The AeroFi Solution
 
 ### 2.1 Decentralized Insurance Protocol
 
-WingFi creates a trustless, automated insurance marketplace where:
+AeroFi creates a trustless, automated insurance marketplace where:
 
 1. **Users** purchase flight delay insurance with transparent pricing
 2. **Liquidity Providers (LPs)** deposit capital to underwrite policies and earn yield
@@ -269,7 +269,7 @@ WingFi creates a trustless, automated insurance marketplace where:
 - **Nexus Mutual**: Mutual insurance model (requires membership)
 - **InsurAce**: Multi-chain coverage (focus on DeFi risks)
 
-**WingFi Differentiators**
+**AeroFi Differentiators**
 - ✅ Specialized in flight insurance only
 - ✅ Multi-pool liquidity architecture
 - ✅ Chrome extension for seamless UX
@@ -434,11 +434,11 @@ WingFi creates a trustless, automated insurance marketplace where:
 
 ## 10. Conclusion
 
-WingFi represents the next evolution in travel insurance, leveraging blockchain technology to create a transparent, efficient, and user-centric protocol. By eliminating intermediaries, automating claims processing, and democratizing liquidity provision, WingFi addresses fundamental inefficiencies in the $4.2B flight insurance market.
+AeroFi represents the next evolution in travel insurance, leveraging blockchain technology to create a transparent, efficient, and user-centric protocol. By eliminating intermediaries, automating claims processing, and democratizing liquidity provision, AeroFi addresses fundamental inefficiencies in the $4.2B flight insurance market.
 
-The protocol's technical innovation, combined with a proven market need and clear go-to-market strategy, positions WingFi as a leader in decentralized insurance. As the crypto and travel industries continue to converge, WingFi offers a compelling solution for millions of travelers seeking affordable, instant, and trustless flight delay protection.
+The protocol's technical innovation, combined with a proven market need and clear go-to-market strategy, positions AeroFi as a leader in decentralized insurance. As the crypto and travel industries continue to converge, AeroFi offers a compelling solution for millions of travelers seeking affordable, instant, and trustless flight delay protection.
 
-**Join the WingFi revolution and experience the future of travel insurance.**
+**Join the AeroFi revolution and experience the future of travel insurance.**
 
 ---
 

@@ -45,8 +45,10 @@ export function DepositWithdrawForm({
     approvalHash,
     isDepositing,
     isDeposited,
+    depositHash,
     refetchAllowance,
-    needsApproval,
+    needsApproval: needsApprovalFn,
+    currentAllowance,
   } = useDepositWithApproval(poolAddress, address as Address | undefined);
 
   // Withdraw
@@ -56,17 +58,22 @@ export function DepositWithdrawForm({
     isSuccess: isWithdrawn,
   } = useWithdraw(poolAddress);
 
+  // Track if we just approved to trigger deposit
+  const [justApproved, setJustApproved] = useState(false);
+
   // Auto-trigger deposit after approval is confirmed
   useEffect(() => {
-    if (isApproved && depositAmount && !isDepositing && !isDeposited) {
-      // Refetch allowance and trigger deposit
-      refetchAllowance().then(() => {
-        setTimeout(() => {
-          depositWithApproval(depositAmount);
-        }, 500); // Small delay to ensure allowance is updated
-      });
+    if (isApproved && !justApproved && depositAmount && !isDepositing && !isDeposited) {
+      setJustApproved(true);
+      // Wait for approval to be mined and allowance to update
+      setTimeout(async () => {
+        await refetchAllowance();
+        // Now deposit
+        await depositWithApproval(depositAmount);
+        setJustApproved(false);
+      }, 2000); // 2 second delay to ensure blockchain state is updated
     }
-  }, [isApproved, depositAmount, isDepositing, isDeposited, refetchAllowance, depositWithApproval]);
+  }, [isApproved]); // Only depend on isApproved changing
 
   // Refetch balances after successful transactions
   useEffect(() => {
@@ -74,6 +81,7 @@ export function DepositWithdrawForm({
       refetchTokenBalance();
       refetchLPBalance();
       setDepositAmount('');
+      setJustApproved(false); // Reset approval tracking
     }
   }, [isDeposited, refetchTokenBalance, refetchLPBalance]);
 
@@ -109,6 +117,7 @@ export function DepositWithdrawForm({
   }
 
   const isDepositLoading = isApproving || isDepositing;
+  const needsApproval = depositAmount ? needsApprovalFn(depositAmount) : false;
   const depositButtonText = isApproving
     ? 'Approving...'
     : isDepositing

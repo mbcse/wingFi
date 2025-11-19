@@ -11,7 +11,7 @@ import {PoolManager} from "../src/PoolManager.sol";
 import {MockERC20} from "../src/mocks/MockERC20.sol";
 import {IPool} from "../src/interfaces/IPool.sol";
 
-contract WingFiTest is Test {
+contract AeroFiTest is Test {
     MockERC20 public stablecoin;
     PolicyNFT public policyNFT;
     GlobalPool public globalPool;

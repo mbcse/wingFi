@@ -1,4 +1,4 @@
-# WingFi Insurance Chrome Extension
+# AeroFi Insurance Chrome Extension
 
 Chrome extension for buying flight insurance directly from booking confirmation pages.
 
@@ -18,7 +18,7 @@ Chrome extension for buying flight insurance directly from booking confirmation 
 2. Enable "Developer mode" (toggle in top-right)
 3. Click "Load unpacked"
 4. Select the `wingFi-extension` folder
-5. The WingFi extension icon should appear in your toolbar
+5. The AeroFi extension icon should appear in your toolbar
 
 ### 2. Setup Requirements
 
@@ -35,7 +35,7 @@ Chrome extension for buying flight insurance directly from booking confirmation 
    - Flight Number (e.g., EK524 for Emirates)
    - Passenger details
 3. Click "Generate New Booking"
-4. Click the WingFi extension icon
+4. Click the AeroFi extension icon
 5. The extension should auto-fill the PNR and flight number!
 
 ## Usage
@@ -44,7 +44,7 @@ Chrome extension for buying flight insurance directly from booking confirmation 
 
 1. **Book a flight** on any airline website
 2. **Open the confirmation page** with your PNR
-3. **Click the WingFi extension icon**
+3. **Click the AeroFi extension icon**
 4. **Connect your wallet** (MetaMask)
 5. Extension auto-detects:
    - PNR/Booking Reference
