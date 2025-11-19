@@ -3,7 +3,7 @@
   "scripts": {
     "copy-deployment": "node scripts/copy-deployment.js",
     "predev": "npm run copy-deployment",
-    "dev": "next dev",
+    "dev": "next dev --webpack",
     "prebuild": "npm run copy-deployment",
     "build": "next build --webpack",
     "start": "next start"
